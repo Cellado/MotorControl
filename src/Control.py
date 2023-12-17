@@ -1,8 +1,15 @@
+import keyboard
+try:
+    import RPi.GPIO as GPIO
+except:
+    print("Did not import GPIO")
+from time import sleep 
+def on_key_event(event):
+    print (f"you pressed {event}")
 
-from gpiozero import Motor
-
-motor1 = Motor(forward = 0, backward = 0)
-
-motor1.forward()
-motor2.backward()
-
+    if event.name == 'up':
+        print ('true')
+        
+keyboard.on_release(on_key_event)
+    
+keyboard.wait('esc')
