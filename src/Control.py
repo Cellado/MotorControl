@@ -5,14 +5,29 @@ try:
     import RPi.GPIO as GPIO
 except:
     print("Did not import GPIO")
-    GP = False 
+    Gp = False 
 
 def on_key_event(event):
-    print (f"you pressed {event}")
+    """
+    Checks for keys being pressed and Prints the key being pressed. 
 
-    if event.name == 'up up':
+    Parameters: 
+    event: The key being pressed. 
+
+    """
+    print (f" you pressed {event}")
+
+    if event.name == "up":
         print ('true')
 
 keyboard.on_release(on_key_event)
     
-keyboard.wait('esc up')
+keyboard.wait('esc')
+
+def motorInit():
+    if Gp == True:
+        print("working")
+        GPIO.setmode(GPIO.BOARD)
+
+
+
