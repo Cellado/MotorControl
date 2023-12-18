@@ -3,6 +3,7 @@ import time
 Gp = True 
 try:
     import RPi.GPIO as GPIO
+    print("imported GPIO")
 except:
     print("Did not import GPIO")
 
