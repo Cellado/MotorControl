@@ -39,6 +39,7 @@ def on_key_event(event):
         try: 
             GPIO.output(Motor1F, GPIO.HIGH)
             GPIO.output(Motor2F, GPIO.HIGH)
+            time.sleep(2)
         except:
             print("Tried GPIO up")
     if event.name == "down":
@@ -46,6 +47,7 @@ def on_key_event(event):
         try: 
             GPIO.output(Motor1B, GPIO.HIGH)
             GPIO.output(Motor2B, GPIO.HIGH)
+            time.sleep(2)
         except:
             print("Tried GPIO down")
 
