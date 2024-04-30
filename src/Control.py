@@ -49,8 +49,7 @@ def on_release(key):
 def on_move(x, y):
     print(f'Mouse moved to ({x}, {y})')
 
-with MouseListener(
-    on_move=on_move) as listener:
+with MouseListener(on_move=on_move) as listener:
     listener.join
 
 
