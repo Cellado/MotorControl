@@ -1,5 +1,8 @@
 import time
 import pynput
+from pynput.keyboard import Key, Listener
+from pynput.mouse import Listener as MouseListener
+
 
 Gp = True 
 try:
@@ -32,6 +35,28 @@ except:
             #GPIO.output(Motor1B, GPIO.LOW)
             #GPIO.output(Motor2F, GPIO.HIGH)
             #GPIO.output(Motor2B, GPIO.LOW)
+
+def on_press(key):
+    print(f'{key} pressed')
+
+def on_release(key):
+    print(f'{key} released')
+
+    if key == Key.esc:
+        return False
+        exit() 
+
+def on_move(x, y):
+    print(f'Mouse moved to ({x}, {y})')
+
+with MouseListener(
+    on_move=on_move) as listener:
+    listener.join
+
+
+with Listener(on_press=on_press, on_release=on_release) as listener:
+    listener.join()
+
 try: 
     GPIO.cleanup()
 except: 
